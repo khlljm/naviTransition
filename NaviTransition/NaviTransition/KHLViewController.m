@@ -6,13 +6,13 @@
 //  Copyright © 2016年 khl. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "KHLViewController.h"
 
-@interface ViewController ()
+@interface KHLViewController ()
 
 @end
 
-@implementation ViewController
+@implementation KHLViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

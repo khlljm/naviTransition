@@ -6,13 +6,13 @@
 //  Copyright © 2016年 khl. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "KHLAppDelegate.h"
 
-@interface AppDelegate ()
+@interface KHLAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation KHLAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
