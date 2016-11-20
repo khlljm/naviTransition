@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  KHLRootViewController.h
 //  NaviTransition
 //
 //  Created by khl on 2016/11/20.
@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+KHLRootNaviController.h"
 
-@interface KHLViewController : UIViewController
-
-- (NSArray <__kindof UIViewController *> *)hello;
+@interface KHLRootViewController : UIViewController
 
 @end

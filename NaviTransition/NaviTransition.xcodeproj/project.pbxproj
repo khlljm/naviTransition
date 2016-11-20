@@ -13,6 +13,10 @@
 		C603003E1DE16927006152A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C603003C1DE16927006152A2 /* Main.storyboard */; };
 		C60300401DE16927006152A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C603003F1DE16927006152A2 /* Assets.xcassets */; };
 		C60300431DE16927006152A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C60300411DE16927006152A2 /* LaunchScreen.storyboard */; };
+		C61FBA7C1DE19EF4003A4A92 /* UIViewController+KHLRootNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61FBA7B1DE19EF4003A4A92 /* UIViewController+KHLRootNaviController.m */; };
+		C61FBA7F1DE19F1A003A4A92 /* KHLRootNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61FBA7E1DE19F1A003A4A92 /* KHLRootNaviController.m */; };
+		C61FBA831DE1F338003A4A92 /* KHLRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61FBA811DE1F338003A4A92 /* KHLRootViewController.m */; };
+		C61FBA841DE1F338003A4A92 /* KHLRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C61FBA821DE1F338003A4A92 /* KHLRootViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,13 @@
 		C603003F1DE16927006152A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C60300421DE16927006152A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C60300441DE16927006152A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C61FBA7A1DE19EF4003A4A92 /* UIViewController+KHLRootNaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KHLRootNaviController.h"; sourceTree = "<group>"; };
+		C61FBA7B1DE19EF4003A4A92 /* UIViewController+KHLRootNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KHLRootNaviController.m"; sourceTree = "<group>"; };
+		C61FBA7D1DE19F1A003A4A92 /* KHLRootNaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHLRootNaviController.h; sourceTree = "<group>"; };
+		C61FBA7E1DE19F1A003A4A92 /* KHLRootNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHLRootNaviController.m; sourceTree = "<group>"; };
+		C61FBA801DE1F338003A4A92 /* KHLRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHLRootViewController.h; sourceTree = "<group>"; };
+		C61FBA811DE1F338003A4A92 /* KHLRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHLRootViewController.m; sourceTree = "<group>"; };
+		C61FBA821DE1F338003A4A92 /* KHLRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KHLRootViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +69,14 @@
 		C60300321DE16927006152A2 /* NaviTransition */ = {
 			isa = PBXGroup;
 			children = (
+				C61FBA791DE19C47003A4A92 /* KHLTransition */,
 				C60300361DE16927006152A2 /* KHLAppDelegate.h */,
 				C60300371DE16927006152A2 /* KHLAppDelegate.m */,
+				C61FBA801DE1F338003A4A92 /* KHLRootViewController.h */,
+				C61FBA811DE1F338003A4A92 /* KHLRootViewController.m */,
+				C61FBA821DE1F338003A4A92 /* KHLRootViewController.xib */,
 				C60300391DE16927006152A2 /* KHLViewController.h */,
 				C603003A1DE16927006152A2 /* KHLViewController.m */,
-				C603003C1DE16927006152A2 /* Main.storyboard */,
-				C603003F1DE16927006152A2 /* Assets.xcassets */,
-				C60300411DE16927006152A2 /* LaunchScreen.storyboard */,
-				C60300441DE16927006152A2 /* Info.plist */,
 				C60300331DE16927006152A2 /* Supporting Files */,
 			);
 			path = NaviTransition;
@@ -74,9 +85,24 @@
 		C60300331DE16927006152A2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C603003C1DE16927006152A2 /* Main.storyboard */,
+				C603003F1DE16927006152A2 /* Assets.xcassets */,
+				C60300411DE16927006152A2 /* LaunchScreen.storyboard */,
+				C60300441DE16927006152A2 /* Info.plist */,
 				C60300341DE16927006152A2 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C61FBA791DE19C47003A4A92 /* KHLTransition */ = {
+			isa = PBXGroup;
+			children = (
+				C61FBA7A1DE19EF4003A4A92 /* UIViewController+KHLRootNaviController.h */,
+				C61FBA7B1DE19EF4003A4A92 /* UIViewController+KHLRootNaviController.m */,
+				C61FBA7D1DE19F1A003A4A92 /* KHLRootNaviController.h */,
+				C61FBA7E1DE19F1A003A4A92 /* KHLRootNaviController.m */,
+			);
+			path = KHLTransition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61FBA841DE1F338003A4A92 /* KHLRootViewController.xib in Resources */,
 				C60300431DE16927006152A2 /* LaunchScreen.storyboard in Resources */,
 				C60300401DE16927006152A2 /* Assets.xcassets in Resources */,
 				C603003E1DE16927006152A2 /* Main.storyboard in Resources */,
@@ -151,8 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61FBA7C1DE19EF4003A4A92 /* UIViewController+KHLRootNaviController.m in Sources */,
+				C61FBA7F1DE19F1A003A4A92 /* KHLRootNaviController.m in Sources */,
 				C603003B1DE16927006152A2 /* KHLViewController.m in Sources */,
 				C60300381DE16927006152A2 /* KHLAppDelegate.m in Sources */,
+				C61FBA831DE1F338003A4A92 /* KHLRootViewController.m in Sources */,
 				C60300351DE16927006152A2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NaviTransition/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.khl.NaviTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -285,6 +316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NaviTransition/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.khl.NaviTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
