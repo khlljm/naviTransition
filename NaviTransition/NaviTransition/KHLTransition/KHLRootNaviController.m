@@ -307,7 +307,7 @@ OS_OVERLOADABLE static inline UIViewController *KHLSafeWrapViewController(UIView
     return [super viewControllerForUnwindSegueAction:action fromViewController:fromViewController withSender:sender];
 }
 
-- (NSArray<UIViewController *> *)allowedChildViewControllersForUnwindingFromSource:(UIStoryboardUnwindSegueSource *)source {
+- (NSArray<__kindof UIViewController *> *)allowedChildViewControllersForUnwindingFromSource:(UIStoryboardUnwindSegueSource *)source {
     if (self.navigationController) {
         return [self.navigationController allowedChildViewControllersForUnwindingFromSource:source];
     }
@@ -336,14 +336,14 @@ OS_OVERLOADABLE static inline UIViewController *KHLSafeWrapViewController(UIView
     return [super popViewControllerAnimated:animated];
 }
 
-- (NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
+- (NSArray<__kindof UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
     if (self.navigationController) {
         return [self.navigationController popToRootViewControllerAnimated:animated];
     }
     return [super popToRootViewControllerAnimated:animated];
 }
 
-- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (NSArray<__kindof UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.navigationController) {
         return [self.navigationController popToViewController:viewController animated:animated];
     }
@@ -466,13 +466,13 @@ OS_OVERLOADABLE static inline UIViewController *KHLSafeWrapViewController(UIView
     return KHLSafeUnwrapViewController([super popViewControllerAnimated:animated]);
 }
 
-- (NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
+- (NSArray<__kindof UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
     return [[super popToRootViewControllerAnimated:animated] map:^id(__kindof UIViewController *obj, NSUInteger index) {
         return KHLSafeUnwrapViewController(obj);
     }];
 }
 
-- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (NSArray<__kindof UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     __block UIViewController *controllerToPop = nil;
     [[super viewControllers] enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (KHLSafeUnwrapViewController(obj) == viewController) {
@@ -488,7 +488,7 @@ OS_OVERLOADABLE static inline UIViewController *KHLSafeWrapViewController(UIView
     return nil;
 }
 
-- (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
+- (void)setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers animated:(BOOL)animated {
     [super setViewControllers:[viewControllers map:^id(UIViewController *obj, NSUInteger index) {
         if (self.useSystemBackBarButtonItem && index > 0) {
             return KHLSafeWrapViewController(obj, obj.navigationBarClass, self.useSystemBackBarButtonItem, viewControllers[index-1].navigationItem.backBarButtonItem, viewControllers[index-1].title);
@@ -549,14 +549,18 @@ OS_OVERLOADABLE static inline UIViewController *KHLSafeWrapViewController(UIView
     return KHLSafeUnwrapViewController([super visibleViewController]);
 }
 
-- (NSArray<UIViewController *> *)transitionControllers {
+- (NSArray<__kindof UIViewController *> *)transitionControllers {
     return [[super viewControllers] map:^id(__kindof UIViewController *obj, NSUInteger index) {
         return KHLSafeUnwrapViewController(obj);
     }];
 }
 
+- (void)removeViewController:(UIViewController *)controller {
+    [self removeViewController:controller animated:NO];
+}
+
 - (void)removeViewController:(UIViewController *)controller animated:(BOOL)flag {
-    NSMutableArray<UIViewController *> *controllers = [self.viewControllers mutableCopy];
+    NSMutableArray<__kindof UIViewController *> *controllers = [self.viewControllers mutableCopy];
     __block UIViewController *controllerToRemove = nil;
     [controllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (KHLSafeUnwrapViewController(obj) ==  controller) {
@@ -578,12 +582,12 @@ OS_OVERLOADABLE static inline UIViewController *KHLSafeWrapViewController(UIView
     [self pushViewController:viewController animated:animated];
 }
 
-- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated complete:(void (^)(BOOL))block {
+- (NSArray<__kindof UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated complete:(void (^)(BOOL))block {
     if (self.animationBlock) {
         self.animationBlock(NO);
     }
     self.animationBlock = block;
-    NSArray <UIViewController *> *array = [self popToViewController:viewController animated:animated];
+    NSArray <__kindof UIViewController *> *array = [self popToViewController:viewController animated:animated];
     if (!array.count) {
         if (self.animationBlock) {
             self.animationBlock(YES);
@@ -593,13 +597,13 @@ OS_OVERLOADABLE static inline UIViewController *KHLSafeWrapViewController(UIView
     return array;
 }
 
-- (NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated complete:(void (^)(BOOL))block {
+- (NSArray<__kindof UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated complete:(void (^)(BOOL))block {
     if (self.animationBlock) {
         self.animationBlock(NO);
     }
     self.animationBlock = block;
     
-    NSArray <UIViewController *> *array = [self popToRootViewControllerAnimated:animated];
+    NSArray <__kindof UIViewController *> *array = [self popToRootViewControllerAnimated:animated];
     if (!array.count) {
         if (self.animationBlock) {
             self.animationBlock(YES);

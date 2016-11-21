@@ -24,6 +24,8 @@
     KHLRootViewController *rootVC = [KHLRootViewController new];
     
     KHLRootNaviController *rootNavi = [[KHLRootNaviController alloc] initWithRootViewController:rootVC];
+    rootNavi.navigationBar.barTintColor = [UIColor yellowColor];
+    rootNavi.transferNavigationBarAttributes = NO;
     self.window.rootViewController = rootNavi;
     [self.window makeKeyAndVisible];
     return YES;

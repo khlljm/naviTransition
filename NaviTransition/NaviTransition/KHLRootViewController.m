@@ -7,6 +7,7 @@
 //
 
 #import "KHLRootViewController.h"
+#import "KHLRootNaviController.h"
 
 @interface KHLRootViewController ()
 
@@ -17,6 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor redColor];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    KHLRootNaviController *nav = (KHLRootNaviController *)self.transNaviController;
+    NSInteger visiableIndex = [nav.transitionControllers indexOfObject:self.transNaviController.transVisiableController];
+    
+    NSInteger topIndex = [nav.transitionControllers indexOfObject:self.transNaviController.transTopViewController];
+    NSLog(@"visiable = %zd, top = %zd", visiableIndex, topIndex);
 }
 
 - (IBAction)push:(id)sender {
